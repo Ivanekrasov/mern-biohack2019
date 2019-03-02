@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Routes from './routes';
+import { blue, indigo } from '@material-ui/core/colors';
 import './App.css';
-// import Navbar from './Components/Layout/Navbar';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import Footer from './Components/Layout/Footer';
-// import Home from './Components/Layout/Home';
-// import Social from './Components/social/Social';
+
+const theme = createMuiTheme({
+  palette: {
+    secondary: {
+      main: blue[900]
+    },
+    primary: {
+      main: indigo[700]
+    }
+  },
+  typography: {
+    // Use the system font instead of the default Roboto font.
+    fontFamily: [
+      '"Lato"',
+      'sans-serif'
+    ].join(',')
+  }
+});
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {};
     this.connecToServer = this.connecToServer.bind(this);
   }
+
   connecToServer() {
     fetch('/');
   }
@@ -21,25 +38,11 @@ class App extends Component {
   }
   render() {
     return (
-      <Router>
-      <div className="container">
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-      </div>
-      </Router>
+        <div>
+          <MuiThemeProvider theme={theme}>
+            <Routes />
+          </MuiThemeProvider>
+        </div>
     );
   }
 }
