@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, HashRouter, Switch } from 'react-router-dom'
 import Dashboard from './Components/Dashboard/Dashboard';
+import Layout from './Components/Layout/Layout';
 // import Wizard from './components/Wizard';
 // import Cards from './components/Cards'
 // import Main from './components/Main'
@@ -10,11 +11,8 @@ import Dashboard from './Components/Dashboard/Dashboard';
 export default props => (
     <HashRouter>
         <Switch>
-            <Route exact path='/' component={ Dashboard } />
-            <Route exact path='/dashboard' component={ Dashboard } />
-            {/*<Route exact path='/signup' component={ Signup } />*/}
-            {/*<Route exact path='/wizard' component={ Wizard } />*/}
-            {/*<Route exact path='/cards' component={ Cards } />*/}
+            <Route exact path='/' component={ Layout } />
+            {/*<Route exact path='/dashboard' component={ Dashboard } />*/}
         </Switch>
     </HashRouter>
 )
